@@ -1,8 +1,15 @@
 #pragma once
 
-#include "Level3DRender/LevelRender.h"
-
+class MyLevel;
 class Player;
+class BackGround;
+class GameCamera;
+namespace app {
+	namespace actor {
+		class FireCade;
+	}
+}
+
 
 class Game : public IGameObject
 {
@@ -11,10 +18,14 @@ public:
 	~Game() {}
 	bool Start();
 	void Update();
-	void Render(RenderContext& rc);
 
 private:
+	Player* m_player;
+	BackGround* m_backGround;
+	GameCamera* m_gameCamera;
+	MyLevel* m_level;
+	app::actor::FireCade* m_cade;
+
 	ModelRender m_modelRender;
-	Vector3 m_pos;
 };
 
